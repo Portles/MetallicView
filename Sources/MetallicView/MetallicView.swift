@@ -134,7 +134,7 @@ public extension View {
      This method change desaturation of view colors and returns to view.
 
      This method use enable control and get desaturation level to return the View.
-     Recommended to set desaturation level on 0.0 - 50.0
+     Recommended to set desaturation level between 0.0 - 50.0
      
      - parameter desaturationLevel: Desaturation control.
      - parameter isEnabled: Enable control.
@@ -160,7 +160,7 @@ public extension View {
      This method get threshold level and returns to view.
 
      This method use enable control and get threshold level to return the View.
-     Recommended to set threshold level on 0.0 - 1.0
+     Recommended to set threshold level between 0.0 - 1.0
      
      - parameter threshold: Threshold control.
      - parameter isEnabled: Enable control.
@@ -179,7 +179,7 @@ public extension View {
     */
     func metallicThreshold(threshold: CGFloat = 0.1,isEnabled: Bool = true) -> some View {
         self
-            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.threshold.rawValue), arguments: []), isEnabled: isEnabled)
+            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.threshold.rawValue), arguments: [.float(threshold)]), isEnabled: isEnabled)
     }
     
     /**
@@ -202,14 +202,14 @@ public extension View {
     */
     func metallicColorChannelSwap(isEnabled: Bool = true) -> some View {
         self
-            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwap.rawValue), arguments: []), isEnabled: isEnabled)
+            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwapRB.rawValue), arguments: []), isEnabled: isEnabled)
     }
     
     /**
      This method get ghost level and returns to view.
 
      This method use enable control and get ghost level to return the View.
-     Recommended to set ghost level on 0.0 - 1.0
+     Recommended to set ghost level between 0.0 - 1.0
      
      - parameter ghost: Ghost control.
      - parameter isEnabled: Enable control.
@@ -229,5 +229,58 @@ public extension View {
     func metallicGhost(ghost: CGFloat = 0.2, isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.ghost.rawValue), arguments: []), isEnabled: isEnabled)
+    }
+    
+    /**
+     This method get gamma level and returns to view.
+
+     This method use enable control and get gamma level to return the View.
+     Recommended to set gamma level between 0.0 - 65.0
+     
+     - parameter gamma: Gamma control.
+     - parameter isEnabled: Enable control.
+     - returns: Gamma  colors.
+
+     # Notes: #
+     1. First Parameter must be **CGFloat** type
+     2. Second Parameter must be **Bool** type
+     3. Must return on a view.
+        
+     # Example #
+    ```
+    View()
+     .metallicGamma(gamma: $gamma, isEnabled: $enabled)
+     ```
+    */
+    func metallicGamma(gamma: CGFloat = 0.2, isEnabled: Bool = true) -> some View {
+        self
+            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.gamma.rawValue), arguments: []), isEnabled: isEnabled)
+    }
+    
+    /**
+     This method get hue level and returns to view.
+
+     This method use enable control and get hue level to return the View.
+     Recommended to set hue level between 0.0 - 50.0
+     Full range is between 0.0 - 360.0
+     
+     - parameter hue: Hue control.
+     - parameter isEnabled: Enable control.
+     - returns: Hue colors.
+
+     # Notes: #
+     1. First Parameter must be **CGFloat** type
+     2. Second Parameter must be **Bool** type
+     3. Must return on a view.
+        
+     # Example #
+    ```
+    View()
+     .metallicHue(hue: $hue, isEnabled: $enabled)
+     ```
+    */
+    func metallicHue(hue: CGFloat = 0.2, isEnabled: Bool = true) -> some View {
+        self
+            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.hue.rawValue), arguments: []), isEnabled: isEnabled)
     }
 }

@@ -77,8 +77,8 @@ using namespace metal;
     return finalColor;
 }
 
-[[ stitchable ]] half4 colorChannelSwap(float2 position, half4 color) {
-    // Swap the red and blue channels
+[[ stitchable ]] half4 colorChannelSwapRB(float2 position, half4 color) {
+    
     half4 swappedColor = half4(color.b, color.g, color.r, color.a);
     
     return swappedColor;
@@ -90,4 +90,25 @@ using namespace metal;
     ghostColor.a *= ghostIntensity;
 
     return ghostColor;
+}
+
+[[ stitchable ]] half4 gamma(float2 position, half4 color, float gamma) {
+    return pow(color, gamma);
+}
+
+[[ stitchable ]] half4 hue(float2 position, half4 color, float hue) {
+      float newHue = hue * 360.0f;
+      while (newHue < 0.0f) {
+        newHue += 360.0f;
+      }
+    
+      newHue /= 360.0f;
+    
+      float newRed = (1.0f - newHue) * color.r + newHue * color.g;
+      float newGreen = (1.0f - newHue) * color.g + newHue * color.b;
+      float newBlue = (1.0f - newHue) * color.b + newHue * color.r;
+
+      half4 newColor = half4(newRed, newGreen, newBlue, color.a);
+    
+      return newColor;
 }

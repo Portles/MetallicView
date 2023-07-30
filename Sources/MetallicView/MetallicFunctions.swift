@@ -15,6 +15,8 @@ enum MetallicFunctions: String {
          sepia = "sepia",
          desaturate = "desaturate",
          threshold = "threshold",
-         colorChannelSwap = "colorChannelSwap",
-         ghost = "ghost"
+         colorChannelSwapRB = "colorChannelSwapRB",
+         ghost = "ghost",
+         gamma = "gamma",
+         hue = "hue"
 }
