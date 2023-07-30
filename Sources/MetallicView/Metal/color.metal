@@ -78,6 +78,20 @@ using namespace metal;
     return swappedColor;
 }
 
+[[ stitchable ]] half4 colorChannelSwapRG(float2 position, half4 color) {
+    
+    half4 swappedColor = half4(color.g, color.r, color.b, color.a);
+    
+    return swappedColor;
+}
+
+[[ stitchable ]] half4 colorChannelSwapGB(float2 position, half4 color) {
+    
+    half4 swappedColor = half4(color.r, color.b, color.g, color.a);
+    
+    return swappedColor;
+}
+
 [[ stitchable ]] half4 ghost(float2 position, half4 color, float ghostIntensity) {
     
     half4 ghostColor = color;
