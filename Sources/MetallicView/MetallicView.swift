@@ -30,6 +30,7 @@ public extension View {
      .metallicBrightness(brightness: $brightness, isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicBrightness(brightness: Binding<CGFloat>, isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.brightness.rawValue), arguments: [.float(brightness.wrappedValue)]), isEnabled: isEnabled)
@@ -53,6 +54,7 @@ public extension View {
      .metallicInvert(isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicInvert(isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.invert.rawValue), arguments: []), isEnabled: isEnabled)
@@ -76,6 +78,7 @@ public extension View {
      .metallicGrayscale(isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicGrayscale(isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.grayscale.rawValue), arguments: []), isEnabled: isEnabled)
@@ -102,6 +105,7 @@ public extension View {
      .metallicContrast(contrast: $contrast, isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicContrast(contrast: Binding<CGFloat>,isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.contrast.rawValue), arguments: [.float(contrast.wrappedValue)]), isEnabled: isEnabled)
@@ -125,6 +129,7 @@ public extension View {
      .metallicSepia(isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicSepia(isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.sepia.rawValue), arguments: []), isEnabled: isEnabled)
@@ -151,6 +156,7 @@ public extension View {
      .metallicDesaturate(desaturationLevel: $desaturation, isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicDesaturate(desaturationLevel: Binding<CGFloat>, isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.desaturate.rawValue), arguments: [.float(desaturationLevel.wrappedValue)]), isEnabled: isEnabled)
@@ -177,6 +183,7 @@ public extension View {
      .metallicThreshold(threshold: $threshold, isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicThreshold(threshold: Binding<CGFloat>, isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.threshold.rawValue), arguments: [.float(threshold.wrappedValue)]), isEnabled: isEnabled)
@@ -200,6 +207,7 @@ public extension View {
      .metallicColorChannelSwapRB(isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicColorChannelSwapRB(isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwapRB.rawValue), arguments: []), isEnabled: isEnabled)
@@ -223,6 +231,7 @@ public extension View {
      .metallicColorChannelSwapRG(isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicColorChannelSwapRG(isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwapRG.rawValue), arguments: []), isEnabled: isEnabled)
@@ -246,6 +255,7 @@ public extension View {
      .metallicColorChannelSwapGB(isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicColorChannelSwapGB(isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwapGB.rawValue), arguments: []), isEnabled: isEnabled)
@@ -272,6 +282,7 @@ public extension View {
      .metallicGhost(ghost: $ghost, isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicGhost(ghost: Binding<CGFloat>, isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.ghost.rawValue), arguments: [.float(ghost.wrappedValue)]), isEnabled: isEnabled)
@@ -298,6 +309,7 @@ public extension View {
      .metallicGamma(gamma: $gamma, isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicGamma(gamma: Binding<CGFloat>, isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.gamma.rawValue), arguments: [.float(gamma.wrappedValue)]), isEnabled: isEnabled)
@@ -325,6 +337,7 @@ public extension View {
      .metallicHue(hue: $hue, isEnabled: $enabled)
      ```
     */
+    @ViewBuilder
     func metallicHue(hue: Binding<CGFloat>, isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.hue.rawValue), arguments: [.float(hue.wrappedValue)]), isEnabled: isEnabled)
