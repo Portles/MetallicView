@@ -27,7 +27,7 @@ public extension View {
      # Example #
     ```
     View()
-     .metallicbrightness(brightness: $brightness, isEnabled: $isEnabled)
+     .metallicbrightness(brightness: $brightness, isEnabled: $enabled)
      ```
     */
     func metallicbrightness(brightness: CGFloat = 0.0, isEnabled: Bool = true) -> some View {

@@ -17,9 +17,9 @@ using namespace metal;
     return brightenedColor;
 }
 
-[[ stitchable ]] half4 invert_colors(float2 position, half4 color) {
+[[ stitchable ]] half4 invert(float2 position, half4 color) {
     
-    half4 invertedColor = 1.0 - color;
+    half4 invertedColor = half4(1.0 - color.rgb, color.a);
     
     return invertedColor;
 }
@@ -36,13 +36,6 @@ using namespace metal;
     half4 adjustedColor = (color - 0.5) * contrast + 0.5;
     
     return clamp(adjustedColor, 0.0, 1.0);
-}
-
-[[ stitchable ]] half4 invert(float2 position, half4 color) {
-    
-    half4 invertedColor = half4(1.0 - color.rgb, color.a);
-    
-    return invertedColor;
 }
 
 [[ stitchable ]] half4 sepia(float2 position, half4 color) {
