@@ -197,12 +197,58 @@ public extension View {
      # Example #
     ```
     View()
-     .metallicColorChannelSwap(isEnabled: $enabled)
+     .metallicColorChannelSwapRB(isEnabled: $enabled)
      ```
     */
-    func metallicColorChannelSwap(isEnabled: Bool = true) -> some View {
+    func metallicColorChannelSwapRB(isEnabled: Bool = true) -> some View {
         self
             .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwapRB.rawValue), arguments: []), isEnabled: isEnabled)
+    }
+    
+    /**
+     This method swaps red and green color and returns to view.
+
+     This method use enable control to return the View.
+     
+     - parameter isEnabled: Enable control.
+     - returns: Swaped colors.
+
+     # Notes: #
+     1. First Parameter must be **Bool** type
+     2. Must return on a view.
+        
+     # Example #
+    ```
+    View()
+     .metallicColorChannelSwapRG(isEnabled: $enabled)
+     ```
+    */
+    func metallicColorChannelSwapRG(isEnabled: Bool = true) -> some View {
+        self
+            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwapRG.rawValue), arguments: []), isEnabled: isEnabled)
+    }
+    
+    /**
+     This method swaps green and blue color and returns to view.
+
+     This method use enable control to return the View.
+     
+     - parameter isEnabled: Enable control.
+     - returns: Swaped colors.
+
+     # Notes: #
+     1. First Parameter must be **Bool** type
+     2. Must return on a view.
+        
+     # Example #
+    ```
+    View()
+     .metallicColorChannelSwapGB(isEnabled: $enabled)
+     ```
+    */
+    func metallicColorChannelSwapGB(isEnabled: Bool = true) -> some View {
+        self
+            .colorEffect(Shader(function: .init(library: .default, name: MetallicFunctions.colorChannelSwapGB.rawValue), arguments: []), isEnabled: isEnabled)
     }
     
     /**
